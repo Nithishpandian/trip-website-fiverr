@@ -44,7 +44,7 @@
     background: linear-gradient(to right, #FF9C42, #FFB46D);
     border-radius: 999px;
     position: absolute;
-    right: -10%;
+    right: 25%;
     top: 62%;
     z-index: -1;
 }
