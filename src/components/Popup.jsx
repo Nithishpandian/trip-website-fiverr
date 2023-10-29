@@ -32,7 +32,7 @@ export default function Popup({ open, setOpen, step, setStep }) {
       const otp = Math.floor(1000 + Math.random() * 9000);
       axios
         .get(
-          `https://2factor.in/API/V1/${import.meta.env.VITE_API_KEY}/SMS/${
+          `https://2factor.in/API/V1/${import.meta.env.VITE_2FACTOR_API_KEY}/SMS/${
             form.phone
           }/${otp}/OTP1`
         )
@@ -57,7 +57,7 @@ export default function Popup({ open, setOpen, step, setStep }) {
       axios
         .get(
           `https://2factor.in/API/V1/${
-            import.meta.env.VITE_API_KEY
+            import.meta.env.VITE_2FACTOR_API_KEY
           }/SMS/VERIFY3/${form.phone}/${enteredOTP}`
         )
         .then((res) => {
