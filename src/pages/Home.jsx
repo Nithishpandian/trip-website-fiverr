@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <section className="hero-wrapper">
-      <div className=" hero-container">
+      <div className=" hero-container flex-col lg:flex-row justify-center items-center">
         {/* Hero left-section */}
 
         <div className=" hero-left">

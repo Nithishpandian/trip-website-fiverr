@@ -6,7 +6,9 @@ function App() {
   return (
     <div>
       <Home />
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+     />
     </div>
   );
 }
