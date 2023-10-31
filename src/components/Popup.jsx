@@ -17,14 +17,11 @@ export default function Popup({ open, setOpen, step, setStep }) {
   });
   const [enteredOTP, setEnteredOTP] = useState();
   const [otp, setOtp] = useState();
-  const [selectedCountry, setSelectedCountry] = useState("");
   const handleChangeDomestic = () => {
     setCountry("domestic")
-    setSelectedCountry("domestic")
   };
   const handleChangeInternational = () =>{
     setCountry("international")
-    setSelectedCountry("international")
   }
 
   const [showEnterOTP, setShowEnterOTP] = useState(false);
@@ -105,6 +102,17 @@ export default function Popup({ open, setOpen, step, setStep }) {
         console.log(res);
         toast.success("Data has added successfully");
         setOpen(false);
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+        })
+        setCountry("")
+        setEnteredOTP()
+        setOtp()
+        setShowEnterOTP(false)
+        setStep(0)
+        setVerified(false)
       })
       .catch((err) => {
         console.log(err);
@@ -129,11 +137,11 @@ export default function Popup({ open, setOpen, step, setStep }) {
             >
               <h1 className=" font-bold text-stone-700 text-[27px] text-center font-sans">Country</h1>
               <div className=" grid grid-cols-2 gap-4 mb-3">
-                <div onClick={handleChangeDomestic} className={` flex items-center justify-center gap-2 border ${selectedCountry==="domestic" ? " border-[#829af8] bg-[#5071f7] text-slate-50" : "border-stone-400 bg-slate-50 text-stone-700"} duration-300 rounded py-1.5 px-2 font-semibold cursor-pointer`}>
+                <div onClick={handleChangeDomestic} className={` flex items-center justify-center gap-2 border ${country==="domestic" ? " border-[#829af8] bg-[#5071f7] text-slate-50" : "border-slate-400 bg-slate-50 text-stone-700"} duration-300 rounded py-1.5 px-2 font-semibold cursor-pointer`}>
                   <span><GiIndianPalace /></span>
                   <span className=" mt-0.5">Domestic</span>
                 </div>
-                <div onClick={handleChangeInternational} className={` flex items-center justify-center gap-2 border ${selectedCountry==="international" ? "border-[#829af8] bg-[#5071f7] text-slate-50" : "border-stone-400 bg-slate-50 text-stone-700"} duration-300 rounded py-1.5 px-2 font-semibold cursor-pointer`}>
+                <div onClick={handleChangeInternational} className={` flex items-center justify-center gap-2 border ${country==="international" ? "border-[#829af8] bg-[#5071f7] text-slate-50" : "border-slate-400 bg-slate-50 text-stone-700"} duration-300 rounded py-1.5 px-2 font-semibold cursor-pointer`}>
                   <span><AiOutlineGlobal /></span>
                   <span className=" mt-0.5">International</span>
                 </div>
